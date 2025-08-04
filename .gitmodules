@@ -7,3 +7,6 @@
 [submodule "ext/CMSIS_6"]
 	path = ext/CMSIS_6
 	url = https://github.com/ARM-software/CMSIS_6
+[submodule "ext/threadx"]
+	path = ext/threadx
+	url = https://github.com/eclipse-threadx/threadx
