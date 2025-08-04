@@ -43,8 +43,8 @@ extern "C" {
 
 #define USE_STATIC_ALLOCATION                1
 
-#define TX_APP_MEM_POOL_SIZE                     2048
-#define TX_TIMER_TICKS_PER_SECOND                1000
+#define TX_APP_MEM_POOL_SIZE                     2*1024
+
 /* USER CODE BEGIN EC */
 
 /* USER CODE END EC */
