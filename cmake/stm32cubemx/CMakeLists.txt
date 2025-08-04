@@ -22,7 +22,7 @@ target_include_directories(stm32cubemx INTERFACE
     ../../ext/stm32h5xx-hal-driver/Inc/Legacy
     ../../Middlewares/ST/threadx/common/inc
     ../../Drivers/BSP/STM32H5xx_Nucleo
-    ../../Drivers/CMSIS/Device/ST/STM32H5xx/Include
+    ../../ext/cmsis-device-h5/Include
     ../../Middlewares/ST/threadx/ports/cortex_m33/gnu/inc
     ../../Middlewares/ST/threadx/utility/low_power
     ../../Drivers/CMSIS/Include
