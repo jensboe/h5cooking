@@ -1,0 +1,3 @@
+[submodule "ext/stm32h5xx-hal-driver"]
+	path = ext/stm32h5xx-hal-driver
+	url = https://github.com/STMicroelectronics/stm32h5xx-hal-driver
