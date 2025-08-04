@@ -7,9 +7,6 @@ add_library(stm32cubemx INTERFACE)
 enable_language(C ASM)
 
 target_compile_definitions(stm32cubemx INTERFACE 
-	TX_INCLUDE_USER_DEFINE_FILE 
-	TX_SINGLE_MODE_NON_SECURE=1 
-	USE_NUCLEO_64 
 	USE_HAL_DRIVER 
 	STM32H563xx
     $<$<CONFIG:Debug>:DEBUG>
