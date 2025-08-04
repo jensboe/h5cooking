@@ -4,3 +4,6 @@
 [submodule "ext/cmsis-device-h5"]
 	path = ext/cmsis-device-h5
 	url = https://github.com/STMicroelectronics/cmsis-device-h5
+[submodule "ext/CMSIS_6"]
+	path = ext/CMSIS_6
+	url = https://github.com/ARM-software/CMSIS_6

@@ -25,7 +25,7 @@ target_include_directories(stm32cubemx INTERFACE
     ../../ext/cmsis-device-h5/Include
     ../../Middlewares/ST/threadx/ports/cortex_m33/gnu/inc
     ../../Middlewares/ST/threadx/utility/low_power
-    ../../Drivers/CMSIS/Include
+    ../../ext/CMSIS_6/CMSIS/Core/Include
 )
 
 target_sources(stm32cubemx INTERFACE
