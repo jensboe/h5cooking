@@ -124,7 +124,6 @@ void MX_ThreadX_Init(void)
 void ThreadOne_Entry(ULONG thread_input)
 {
   (void)thread_input;
-  uint8_t count = 0;
   /* Infinite loop */
   while (1)
   {
@@ -136,7 +135,6 @@ void ThreadOne_Entry(ULONG thread_input)
 void ThreadTwo_Entry(ULONG thread_input)
 {
   (void)thread_input;
-  uint8_t count = 0;
   /* Infinite loop */
   while (1)
   {
