@@ -12,10 +12,9 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS ON)
 
-
 # Define the build type
 if(NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE "Debug")
+set(CMAKE_BUILD_TYPE "Debug")
 endif()
 
 # Set the project name
@@ -23,6 +22,10 @@ set(CMAKE_PROJECT_NAME H5cocking)
 
 # Include toolchain file
 include("cmake/gcc-arm-none-eabi.cmake")
+set(THREADX_ARCH cortex_m7)
+set(THREADX_TOOLCHAIN gnu)
+set(TX_USER_FILE ${CMAKE_CURRENT_LIST_DIR}/Core/Inc/tx_user.h)
+add_subdirectory(ext/threadx)
 
 # Enable compile command to ease indexing with e.g. clangd
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
@@ -63,6 +66,6 @@ target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
 # Add linked libraries
 target_link_libraries(${CMAKE_PROJECT_NAME}
     stm32cubemx
-
+    threadx
     # Add user defined libraries
 )
