@@ -46,6 +46,7 @@ add_executable(${CMAKE_PROJECT_NAME})
 add_subdirectory(cmake/stm32cubemx)
 add_subdirectory(cmake/stm32h5xx-hal-driver)
 add_subdirectory(cmake/cmsis-device-h5)
+add_subdirectory(cmake/CMSIS_6)
 add_subdirectory(bsp)
 
 # Link directories setup
