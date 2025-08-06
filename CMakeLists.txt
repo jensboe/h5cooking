@@ -52,6 +52,7 @@ enable_language(C ASM CXX)
 
 add_subdirectory(apps/blinky_yellow)
 add_subdirectory(apps/blinky_red)
+add_subdirectory(apps/blinky_green)
 add_subdirectory(cmake/stm32h5xx-hal-driver)
 add_subdirectory(cmake/cmsis-device-h5)
 add_subdirectory(cmake/CMSIS_6)
@@ -68,6 +69,12 @@ target_link_libraries(blinky_yellow_h5 PRIVATE
 add_executable(blinky_red_h5)
 target_link_libraries(blinky_red_h5 PRIVATE
     blinky_red
+    BSP_NUCLEO_STM32H563
+)
+
+add_executable(blinky_green_h5)
+target_link_libraries(blinky_green_h5 PRIVATE
+    blinky_green
     BSP_NUCLEO_STM32H563
 )
 
