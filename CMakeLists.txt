@@ -22,9 +22,9 @@ set(CMAKE_PROJECT_NAME H5cocking)
 
 # Include toolchain file
 include("cmake/gcc-arm-none-eabi.cmake")
-set(THREADX_ARCH cortex_m7)
+set(THREADX_ARCH cortex_m33)
 set(THREADX_TOOLCHAIN gnu)
-set(TX_USER_FILE ${CMAKE_CURRENT_LIST_DIR}/bsp/inc/tx_user.h)
+set(TX_USER_FILE ${CMAKE_CURRENT_LIST_DIR}/bsp/NUCLEO_STM32H563/inc/tx_user.h)
 add_subdirectory(ext/threadx)
 
 # Enable compile command to ease indexing with e.g. clangd
@@ -39,39 +39,15 @@ message("Build type: " ${CMAKE_BUILD_TYPE})
 # Enable CMake support for ASM and C languages
 enable_language(C ASM CXX)
 
-# Create an executable object type
-add_executable(${CMAKE_PROJECT_NAME})
 
-# Add STM32CubeMX generated sources
-add_subdirectory(cmake/stm32cubemx)
 add_subdirectory(cmake/stm32h5xx-hal-driver)
 add_subdirectory(cmake/cmsis-device-h5)
+add_subdirectory(cmake/CMSIS_6)
+add_subdirectory(bsp)
 
-# Link directories setup
-target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
-    # Add user defined library search paths
-)
+add_executable(${CMAKE_PROJECT_NAME})
 
-# Add sources to executable
-target_sources(${CMAKE_PROJECT_NAME} PRIVATE
-    # Add user sources here
-)
 
-# Add include paths
-target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
-    # Add user defined include paths
-)
-
-# Add project symbols (macros)
-target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
-    # Add user defined symbols
-)
-
-# Add linked libraries
-target_link_libraries(${CMAKE_PROJECT_NAME}
-    stm32cubemx
-    stm32h5xxhaldriver
-    cmsisdeviceh5
-    threadx
-    # Add user defined libraries
+target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE
+    BSP_NUCLEO_STM32H563
 )

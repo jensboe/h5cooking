@@ -1,23 +1,25 @@
 cmake_minimum_required(VERSION 3.22)
 
 project(stm32h5xxhaldriver)
-add_library(stm32h5xxhaldriver INTERFACE)
+add_library(stm32h5xxhaldriver)
 
 # Enable CMake support for ASM and C languages
 enable_language(C ASM)
 
-target_compile_definitions(stm32h5xxhaldriver INTERFACE 
+target_compile_definitions(stm32h5xxhaldriver PUBLIC 
 	USE_HAL_DRIVER 
 	STM32H563xx
-    $<$<CONFIG:Debug>:DEBUG>
 )
 
-target_include_directories(stm32h5xxhaldriver INTERFACE
+target_include_directories(stm32h5xxhaldriver
+    PUBLIC
     ../../ext/stm32h5xx-hal-driver/Inc
     ../../ext/stm32h5xx-hal-driver/Inc/Legacy
+    PRIVATE
+    ../../bsp/NUCLEO_STM32H563/inc
 )
 
-target_sources(stm32h5xxhaldriver INTERFACE
+target_sources(stm32h5xxhaldriver PUBLIC
     ../../ext/stm32h5xx-hal-driver/Src/stm32h5xx_hal_cortex.c
     ../../ext/stm32h5xx-hal-driver/Src/stm32h5xx_hal_rcc.c
     ../../ext/stm32h5xx-hal-driver/Src/stm32h5xx_hal_rcc_ex.c
@@ -38,15 +40,9 @@ target_sources(stm32h5xxhaldriver INTERFACE
     ../../ext/stm32h5xx-hal-driver/Src/stm32h5xx_hal_uart.c
 )
 
-target_link_directories(stm32h5xxhaldriver INTERFACE
+
+target_link_libraries(stm32h5xxhaldriver PUBLIC
+    cmsisdeviceh5
+    cmsis_6
+    targetflags
 )
-
-target_link_libraries(stm32h5xxhaldriver INTERFACE
-)
-
-# Validate that stm32h5xxhaldriver code is compatible with C standard
-if(CMAKE_C_STANDARD LESS 11)
-    message(ERROR "Generated code requires C11 or higher")
-endif()
-
-
