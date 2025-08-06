@@ -7,9 +7,7 @@ add_library(stm32cubemx INTERFACE)
 enable_language(C ASM)
 
 target_compile_definitions(stm32cubemx INTERFACE 
-	USE_HAL_DRIVER 
 	STM32H563xx
-    $<$<CONFIG:Debug>:DEBUG>
 )
 
 target_include_directories(stm32cubemx INTERFACE

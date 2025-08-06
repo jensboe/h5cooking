@@ -7,9 +7,7 @@ add_library(cmsisdeviceh5 INTERFACE)
 enable_language(C ASM)
 
 target_compile_definitions(cmsisdeviceh5 INTERFACE 
-	USE_HAL_DRIVER 
 	STM32H563xx
-    $<$<CONFIG:Debug>:DEBUG>
 )
 
 target_include_directories(cmsisdeviceh5 INTERFACE

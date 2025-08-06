@@ -9,7 +9,6 @@ enable_language(C ASM)
 target_compile_definitions(stm32h5xxhaldriver INTERFACE 
 	USE_HAL_DRIVER 
 	STM32H563xx
-    $<$<CONFIG:Debug>:DEBUG>
 )
 
 target_include_directories(stm32h5xxhaldriver INTERFACE

@@ -7,7 +7,6 @@ add_library(BSP_NUCLEO_STM32H563 INTERFACE)
 enable_language(C ASM)
 
 target_compile_definitions(BSP_NUCLEO_STM32H563 INTERFACE 
-	USE_HAL_DRIVER 
 	STM32H563xx
     $<$<CONFIG:Debug>:DEBUG>
 )
