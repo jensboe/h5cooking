@@ -44,4 +44,5 @@ target_sources(stm32h5xxhaldriver PUBLIC
 target_link_libraries(stm32h5xxhaldriver PUBLIC
     cmsisdeviceh5
     cmsis_6
+    targetflags
 )

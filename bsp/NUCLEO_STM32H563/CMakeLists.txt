@@ -3,8 +3,53 @@ cmake_minimum_required(VERSION 3.22)
 project(BSP_NUCLEO_STM32H563)
 add_library(BSP_NUCLEO_STM32H563)
 
-# Enable CMake support for ASM and C languages
 enable_language(C ASM)
+
+add_library(targetflags INTERFACE)
+#generc flags for all targets
+target_compile_options(targetflags
+    INTERFACE
+    -Wall
+    -Wextra
+    -Wpedantic
+    -fdata-sections
+    -ffunction-sections
+    $<$<CONFIG:Debug>:-O0 -g3>
+    $<$<CONFIG:Release>:-Os -g0>
+    $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti -fno-exceptions -fno-threadsafe-statics>
+    $<$<COMPILE_LANGUAGE:ASM>:-x assembler-with-cpp -MMD -MP>
+)
+
+target_link_options(targetflags
+    INTERFACE
+    -T${CMAKE_SOURCE_DIR}/STM32H563xx_FLASH.ld
+    --specs=nano.specs
+    -Wl,-Map=${CMAKE_PROJECT_NAME}.map
+    -Wl,--gc-sections
+    -Wl,--start-group
+    -lc
+    -lm
+    -Wl,--end-group
+    -Wl,--print-memory-usage
+    $<$<COMPILE_LANGUAGE:CXX>:-Wl,--start-group -lstdc++ -lsupc++ -Wl,--end-group>
+)
+
+# flags for cortex-m33
+target_compile_options(targetflags
+    INTERFACE
+    -mcpu=cortex-m33
+    -mfpu=fpv4-sp-d16
+    -mfloat-abi=hard
+    -mthumb
+)
+
+target_link_options(targetflags
+    INTERFACE
+    -mcpu=cortex-m33
+    -mfpu=fpv4-sp-d16
+    -mfloat-abi=hard
+    -mthumb
+)
 
 target_compile_definitions(BSP_NUCLEO_STM32H563 INTERFACE 
 	STM32H563xx
@@ -38,4 +83,9 @@ target_link_libraries(BSP_NUCLEO_STM32H563 PUBLIC
     stm32h5xxhaldriver
     cmsisdeviceh5
     threadx
+    targetflags
+)
+
+target_link_libraries(threadx PRIVATE
+    targetflags
 )
