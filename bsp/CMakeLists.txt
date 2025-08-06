@@ -13,6 +13,7 @@ target_compile_definitions(BSP_NUCLEO_STM32H563 INTERFACE
 
 target_include_directories(BSP_NUCLEO_STM32H563 PUBLIC
     inc
+    ../AZURE_RTOS/App
 )
 
 target_sources(BSP_NUCLEO_STM32H563 PUBLIC
@@ -29,6 +30,10 @@ target_sources(BSP_NUCLEO_STM32H563 PUBLIC
     src/stm32h5xx_nucleo.c
 )
 
+target_sources(BSP_NUCLEO_STM32H563 INTERFACE
+    ../AZURE_RTOS/App/app_azure_rtos.c
+)
+
 target_link_directories(BSP_NUCLEO_STM32H563 INTERFACE
 )
 
@@ -36,5 +41,4 @@ target_link_libraries(BSP_NUCLEO_STM32H563 PUBLIC
     stm32h5xxhaldriver
     cmsisdeviceh5
     threadx
-    stm32cubemx
 )
