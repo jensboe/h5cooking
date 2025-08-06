@@ -19,6 +19,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "app_threadx.h"
 #include "main.h"
+extern int app_main(void);
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -107,7 +108,7 @@ int main(void)
   {
     Error_Handler();
   }
-
+  app_main();
   /* USER CODE END 2 */
 
   MX_ThreadX_Init();

@@ -50,14 +50,24 @@ message("Build type: " ${CMAKE_BUILD_TYPE})
 enable_language(C ASM CXX)
 
 
+add_subdirectory(apps/blinky_yellow)
+add_subdirectory(apps/blinky_red)
 add_subdirectory(cmake/stm32h5xx-hal-driver)
 add_subdirectory(cmake/cmsis-device-h5)
 add_subdirectory(cmake/CMSIS_6)
 add_subdirectory(bsp)
 
-add_executable(${CMAKE_PROJECT_NAME})
+# Let's combine apps with BSPs
 
-
-target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE
+add_executable(blinky_yellow_h5)
+target_link_libraries(blinky_yellow_h5 PRIVATE
+    blinky_yellow
     BSP_NUCLEO_STM32H563
 )
+
+add_executable(blinky_red_h5)
+target_link_libraries(blinky_red_h5 PRIVATE
+    blinky_red
+    BSP_NUCLEO_STM32H563
+)
+
