@@ -26,6 +26,7 @@ target_sources(BSP_NUCLEO_STM32H563 PUBLIC
     src/syscalls.c
     src/startup_stm32h563xx.s
     src/tx_initialize_low_level.S
+    src/stm32h5xx_nucleo.c
 )
 
 target_link_directories(BSP_NUCLEO_STM32H563 INTERFACE

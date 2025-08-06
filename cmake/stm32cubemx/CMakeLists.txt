@@ -13,12 +13,10 @@ target_compile_definitions(stm32cubemx INTERFACE
 target_include_directories(stm32cubemx INTERFACE
     ../../bsp/inc    
     ../../AZURE_RTOS/App
-    ../../Drivers/BSP/STM32H5xx_Nucleo
 )
 
 target_sources(stm32cubemx INTERFACE
     ../../AZURE_RTOS/App/app_azure_rtos.c
-    ../../Drivers/BSP/STM32H5xx_Nucleo/stm32h5xx_nucleo.c
 )
 
 target_link_directories(stm32cubemx INTERFACE
