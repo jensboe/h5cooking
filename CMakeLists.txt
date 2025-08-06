@@ -20,12 +20,22 @@ endif()
 # Set the project name
 set(CMAKE_PROJECT_NAME H5cocking)
 
-# Include toolchain file
+
 include("cmake/gcc-arm-none-eabi.cmake")
-set(THREADX_ARCH cortex_m33)
-set(THREADX_TOOLCHAIN gnu)
-set(TX_USER_FILE ${CMAKE_CURRENT_LIST_DIR}/bsp/NUCLEO_STM32H563/inc/tx_user.h)
-add_subdirectory(ext/threadx)
+
+
+function(add_threadx_target TARGET ARCH TOOLCHAIN TX_USER_FILE)
+    set(THREADX_ARCH ${ARCH} CACHE INTERNAL "")
+    set(THREADX_TOOLCHAIN ${TOOLCHAIN} CACHE INTERNAL "")
+    set(TX_USER_FILE ${TX_USER_FILE} CACHE INTERNAL "")
+
+    add_subdirectory(
+        ${CMAKE_SOURCE_DIR}/ext/threadx
+        ${CMAKE_BINARY_DIR}/ext/threadx
+    )
+    target_link_libraries(${TARGET} PUBLIC threadx)
+endfunction()
+
 
 # Enable compile command to ease indexing with e.g. clangd
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)

@@ -58,6 +58,7 @@ target_include_directories(BSP_NUCLEO_STM32H563 PUBLIC
     inc
 )
 
+
 target_sources(BSP_NUCLEO_STM32H563 PUBLIC
     src/main.c
     src/app_threadx.c
@@ -80,8 +81,14 @@ target_link_directories(BSP_NUCLEO_STM32H563 INTERFACE
 target_link_libraries(BSP_NUCLEO_STM32H563 PUBLIC
     stm32h5xxhaldriver
     cmsisdeviceh5
-    threadx
     targetflags
+)
+
+add_threadx_target(
+    BSP_NUCLEO_STM32H563
+    cortex_m33
+    gnu
+    ${CMAKE_CURRENT_LIST_DIR}/inc/tx_user.h
 )
 
 target_link_libraries(threadx PRIVATE
