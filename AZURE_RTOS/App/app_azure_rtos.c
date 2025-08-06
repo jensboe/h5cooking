@@ -67,10 +67,10 @@ static TX_BYTE_POOL tx_app_byte_pool;
   * @param  first_unused_memory : Pointer to the first unused memory
   * @retval None
   */
-VOID tx_application_define(VOID *first_unused_memory)
+VOID tx_application_define(VOID *first_unused_memory) 
 {
   /* USER CODE BEGIN  tx_application_define_1*/
-
+  (void)first_unused_memory;
   /* USER CODE END  tx_application_define_1 */
 #if (USE_STATIC_ALLOCATION == 1)
   UINT status = TX_SUCCESS;
