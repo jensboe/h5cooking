@@ -22,7 +22,7 @@ set(CMAKE_PROJECT_NAME H5cocking)
 
 # Include toolchain file
 include("cmake/gcc-arm-none-eabi.cmake")
-set(THREADX_ARCH cortex_m7)
+set(THREADX_ARCH cortex_m33)
 set(THREADX_TOOLCHAIN gnu)
 set(TX_USER_FILE ${CMAKE_CURRENT_LIST_DIR}/bsp/NUCLEO_STM32H563/inc/tx_user.h)
 add_subdirectory(ext/threadx)

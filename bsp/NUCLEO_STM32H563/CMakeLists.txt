@@ -25,9 +25,10 @@ target_sources(BSP_NUCLEO_STM32H563 PUBLIC
     src/sysmem.c
     src/syscalls.c
     src/startup_stm32h563xx.s
-    src/tx_initialize_low_level.S
     src/stm32h5xx_nucleo.c
     src/app_azure_rtos.c
+    src/tx_initialize_low_level.S
+    src/tx_thread_secure_stack_initialize.S
 )
 
 target_link_directories(BSP_NUCLEO_STM32H563 INTERFACE
