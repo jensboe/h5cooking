@@ -13,7 +13,6 @@ target_compile_definitions(BSP_NUCLEO_STM32H563 INTERFACE
 
 target_include_directories(BSP_NUCLEO_STM32H563 PUBLIC
     inc
-    ../AZURE_RTOS/App
 )
 
 target_sources(BSP_NUCLEO_STM32H563 PUBLIC
@@ -28,10 +27,7 @@ target_sources(BSP_NUCLEO_STM32H563 PUBLIC
     src/startup_stm32h563xx.s
     src/tx_initialize_low_level.S
     src/stm32h5xx_nucleo.c
-)
-
-target_sources(BSP_NUCLEO_STM32H563 INTERFACE
-    ../AZURE_RTOS/App/app_azure_rtos.c
+    src/app_azure_rtos.c
 )
 
 target_link_directories(BSP_NUCLEO_STM32H563 INTERFACE
