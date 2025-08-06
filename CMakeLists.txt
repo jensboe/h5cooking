@@ -24,7 +24,7 @@ set(CMAKE_PROJECT_NAME H5cocking)
 include("cmake/gcc-arm-none-eabi.cmake")
 set(THREADX_ARCH cortex_m7)
 set(THREADX_TOOLCHAIN gnu)
-set(TX_USER_FILE ${CMAKE_CURRENT_LIST_DIR}/Core/Inc/tx_user.h)
+set(TX_USER_FILE ${CMAKE_CURRENT_LIST_DIR}/bsp/inc/tx_user.h)
 add_subdirectory(ext/threadx)
 
 # Enable compile command to ease indexing with e.g. clangd
