@@ -16,7 +16,7 @@ target_include_directories(stm32h5xxhaldriver
     ../../ext/stm32h5xx-hal-driver/Inc
     ../../ext/stm32h5xx-hal-driver/Inc/Legacy
     PRIVATE
-    ../../bsp/Inc
+    ../../bsp/NUCLEO_STM32H563/inc
 )
 
 target_sources(stm32h5xxhaldriver PUBLIC
