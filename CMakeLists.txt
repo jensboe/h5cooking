@@ -51,7 +51,5 @@ add_executable(${CMAKE_PROJECT_NAME})
 
 
 target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE
-    
-stm32cubemx
-BSP_NUCLEO_STM32H563
+    BSP_NUCLEO_STM32H563
 )

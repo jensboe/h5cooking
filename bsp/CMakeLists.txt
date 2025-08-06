@@ -36,4 +36,5 @@ target_link_libraries(BSP_NUCLEO_STM32H563 PUBLIC
     stm32h5xxhaldriver
     cmsisdeviceh5
     threadx
+    stm32cubemx
 )
