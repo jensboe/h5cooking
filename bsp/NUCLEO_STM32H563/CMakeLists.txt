@@ -40,7 +40,6 @@ target_compile_options(targetflags
     -mcpu=cortex-m33
     -mfpu=fpv4-sp-d16
     -mfloat-abi=hard
-    -mthumb
 )
 
 target_link_options(targetflags
@@ -48,7 +47,6 @@ target_link_options(targetflags
     -mcpu=cortex-m33
     -mfpu=fpv4-sp-d16
     -mfloat-abi=hard
-    -mthumb
 )
 
 target_compile_definitions(BSP_NUCLEO_STM32H563 INTERFACE 
