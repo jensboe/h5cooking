@@ -61,7 +61,6 @@ target_include_directories(BSP_NUCLEO_STM32H563 PUBLIC
 
 target_sources(BSP_NUCLEO_STM32H563 PUBLIC
     src/main.c
-    src/app_threadx.c
     src/stm32h5xx_it.c
     src/stm32h5xx_hal_msp.c
     src/stm32h5xx_hal_timebase_tim.c
@@ -70,7 +69,6 @@ target_sources(BSP_NUCLEO_STM32H563 PUBLIC
     src/syscalls.c
     src/startup_stm32h563xx.s
     src/stm32h5xx_nucleo.c
-    src/app_azure_rtos.c
     src/tx_initialize_low_level.S
     src/tx_thread_secure_stack_initialize.S
 )

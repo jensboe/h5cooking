@@ -1,5 +1,4 @@
 
-#include "app_threadx.h"
 #include "main.h"
 extern int App_Run(void);
 
@@ -23,37 +22,32 @@ void BSP_Init(void)
         Error_Handler();
     }
     printf("Hello!\r\n");
-    printf("BSP_Init done\r\n");
-}
 
-void App_Init(void)
-{
     BSP_LED_Init(LED_GREEN);
     BSP_LED_Init(LED_YELLOW);
     BSP_LED_Init(LED_RED);
 
     BSP_PB_Init(BUTTON_USER, BUTTON_MODE_EXTI);
-    printf("App_Init done\r\n");
-}
-
-void App_DeInit(void)
-{
-    printf("App_DeInit done\r\n");
+    printf("BSP_Init done\r\n");
 }
 
 void BSP_DeInit(void)
 {
     printf("BSP_DeInit started.\r\n"); 
+    BSP_LED_DeInit(LED_GREEN);
+    BSP_LED_DeInit(LED_YELLOW);
+    BSP_LED_DeInit(LED_RED);
+
+    BSP_PB_DeInit(BUTTON_USER);
     printf("Goodbye\r\n"); 
     HAL_DeInit();
 }
+
 int main(void)
 {
     BSP_Init();
-    App_Init();
     App_Run();
-    tx_kernel_enter();
-    App_DeInit();
+
     BSP_DeInit();
 }
 
