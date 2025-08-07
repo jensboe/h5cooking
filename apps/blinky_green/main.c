@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include "appmain.h"
 
-int app_main(void)
+int App_Run(void)
 {
     for(;;)
     {

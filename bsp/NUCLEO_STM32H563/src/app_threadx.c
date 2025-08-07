@@ -38,10 +38,6 @@ UINT App_ThreadX_Init(VOID *memory_ptr)
     return ret;
 }
 
-void MX_ThreadX_Init(void)
-{
-    tx_kernel_enter();
-}
 
 void ThreadOne_Entry(ULONG thread_input)
 {

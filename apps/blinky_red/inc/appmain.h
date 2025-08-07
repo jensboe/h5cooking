@@ -1,3 +1,3 @@
 #pragma once
-int app_main(void);
+int App_Run(void);
 
